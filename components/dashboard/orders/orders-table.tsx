@@ -199,7 +199,7 @@ export function OrdersTable() {
                       variant={
                         order.shippingStatus === "DELIVERED"
                           ? "default"
-                          : order.shippingStatus === "SHIPPED"
+                          : order.shippingStatus === "IN_TRANSIT"
                             ? "secondary"
                             : "outline"
                       }
@@ -252,7 +252,7 @@ export function OrdersTable() {
                         </DropdownMenuItem>
                       )}
                       {order.status !== "CANCELLED" &&
-                        order.status !== "COMPLETED" && (
+                        order.status !== "PAID" && (
                           <DropdownMenuItem
                             onClick={() =>
                               updateOrderStatus(order.id, "CANCELLED")

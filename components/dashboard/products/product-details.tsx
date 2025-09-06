@@ -207,7 +207,7 @@ export function ProductDetails({ productId }: ProductDetailsProps) {
                   Last Updated
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {new Date(product.updatedAt).toLocaleDateString()}
+                  {new Date(product.updatedAt!).toLocaleDateString()}
                 </p>
               </div>
             </div>

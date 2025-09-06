@@ -35,6 +35,7 @@ export const AutoLogout = () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       events.forEach((event) => window.removeEventListener(event, resetTimer));
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuth]);
 
   return null;
