@@ -19,9 +19,11 @@ import {
 } from "@/components/ui/form";
 import { useMarketStore } from "@/store/useMarketStore";
 import { apiFetch } from "@/lib/api";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z.email({
@@ -29,6 +31,9 @@ const formSchema = z.object({
   }),
   password: z.string().min(6, {
     message: "Password must be at least 6 characters.",
+  }),
+  captchaToken: z.string().min(1, {
+    message: "Please complete the CAPTCHA verification.",
   }),
 });
 
@@ -40,12 +45,14 @@ interface Props {
 export function LoginDialog({ isOpen, setIsOpen }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const { setIsAuth } = useMarketStore((state) => state);
+  const recaptchaRef = useRef<HCaptcha>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
+      captchaToken: "",
     },
   });
 
@@ -64,9 +71,26 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
       console.error("error in login dialog", error);
       toast.error(`${error}`);
     } finally {
+      resetCaptcha();
       setIsLoading(false);
     }
   }
+
+  const handleCaptchaChange = (token: string | null) => {
+    if (token) {
+      form.setValue("captchaToken", token);
+      form.clearErrors("captchaToken");
+    } else {
+      form.setValue("captchaToken", "");
+    }
+  };
+
+  const resetCaptcha = () => {
+    if (recaptchaRef.current) {
+      recaptchaRef.current.resetCaptcha();
+    }
+    form.setValue("captchaToken", "");
+  };
 
   return (
     <ResponsiveDialog
@@ -105,6 +129,38 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="captchaToken"
+            render={() => (
+              <FormItem>
+                <FormLabel>Verification</FormLabel>
+                <FormControl>
+                  <div className="flex justify-center">
+                    <HCaptcha
+                      sitekey={
+                        process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY ||
+                        "your-site-key"
+                      }
+                      onVerify={(token) => handleCaptchaChange(token)}
+                      onExpire={() => handleCaptchaChange(null)}
+                      onError={() => handleCaptchaChange(null)}
+                    />
+                  </div>
+                </FormControl>
+                <FormDescription>
+                  Please verify that you are not a robot.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className="flex flex-col space-y-4 text-xs">
+            <Link href="/auth/request-reset">forgot your password?</Link>
+            <Link href="/auth/register">Dont have an account</Link>
+          </div>
+
           <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>

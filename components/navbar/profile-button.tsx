@@ -50,7 +50,9 @@ export function ProfileButton() {
               </>
             )}
             <DropdownMenuLabel>Profile Options</DropdownMenuLabel>
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/profile">Profile</Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>
               <Link href="/orders">Orders</Link>
             </DropdownMenuItem>
