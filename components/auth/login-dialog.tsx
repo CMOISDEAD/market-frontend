@@ -134,7 +134,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
             name="captchaToken"
             render={() => (
               <FormItem>
-                <FormLabel>Verification</FormLabel>
+                <FormLabel>Verificacion</FormLabel>
                 <FormControl>
                   <div className="flex justify-center">
                     <HCaptcha
@@ -149,7 +149,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
                   </div>
                 </FormControl>
                 <FormDescription>
-                  Please verify that you are not a robot.
+                  Por favor verifica que no eres un robot.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -157,8 +157,8 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
           />
 
           <div className="flex flex-col space-y-4 text-xs">
-            <Link href="/auth/request-reset">forgot your password?</Link>
-            <Link href="/auth/register">Dont have an account</Link>
+            <Link href="/auth/request-reset">Olvidaste tu contraseña</Link>
+            <Link href="/auth/register">Aun no tienes una cuenta?</Link>
           </div>
 
           <DialogFooter>
@@ -167,7 +167,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
             </DialogClose>
             <Button type="submit" disabled={isLoading}>
               {isLoading && <Loader2 className="size-4 animate-spin" />}
-              Submit
+              Login
             </Button>
           </DialogFooter>
         </form>
