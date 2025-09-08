@@ -51,7 +51,7 @@ const NewPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [tokenValid, setTokenValid] = useState<boolean | null>(null);
-  const { token } = useParams<{ token: string }>();
+  const { id: token } = useParams<{ id: string }>();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
