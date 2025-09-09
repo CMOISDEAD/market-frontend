@@ -5,10 +5,10 @@ export function Footer() {
     <footer className="w-full py-12 px-4 bg-dark-600 border-t border-input">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start space-y-2">
+          <div className="flex flex-col items-center">
             <Logo />
-            <p className="text-muted-foreground text-sm">
-              Premium streetwear since 2520
+            <p className="text-muted-foreground text-sm italic">
+              &quot;Premium streetwear since 2020&quot;
             </p>
           </div>
 
@@ -31,9 +31,7 @@ export function Footer() {
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-xs">
-              &copy; 2023 SDFM 2520. All rights reserved.
-            </p>
+            <p className="text-xs">&copy; 2025 MBS. All rights reserved.</p>
           </div>
         </div>
       </div>

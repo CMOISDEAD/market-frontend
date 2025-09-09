@@ -22,10 +22,10 @@ import {
 import {
   Edit,
   MoreHorizontal,
-  Trash2,
   Eye,
   Search,
   ShoppingCart,
+  ToggleRight,
 } from "lucide-react";
 import Link from "next/link";
 import { UserType } from "@/types/types";
@@ -181,15 +181,16 @@ export function UsersTable() {
                       <DropdownMenuItem
                         onClick={() => toggleActivation(user.id)}
                       >
+                        <ToggleRight className="mr-2 h-4 w-4" />
                         {user.activated ? "Deactivate" : "Activate"}
                       </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => deleteUser(user.id)}
-                        className="text-destructive"
-                      >
-                        <Trash2 className="mr-2 h-4 w-4" />
-                        Delete
-                      </DropdownMenuItem>
+                      {/* <DropdownMenuItem */}
+                      {/*   onClick={() => deleteUser(user.id)} */}
+                      {/*   className="text-destructive" */}
+                      {/* > */}
+                      {/*   <Trash2 className="mr-2 h-4 w-4" /> */}
+                      {/*   Delete */}
+                      {/* </DropdownMenuItem> */}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

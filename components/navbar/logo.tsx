@@ -4,12 +4,13 @@ import Link from "next/link";
 export function Logo() {
   return (
     <Link href="/">
-      <div className="relative w-24 h-24">
+      <div className="">
         <Image
           src="/logo.png"
           alt="SDFM 2520"
-          fill
-          className="object-contain invert"
+          className="object-contain"
+          width={200}
+          height={200}
           priority
         />
       </div>

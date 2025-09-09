@@ -52,7 +52,7 @@ export function SplashScreen() {
           src="/logo.png"
           alt="SDFM 2520"
           fill
-          className="object-contain invert"
+          className="object-contain"
           priority
         />
       </div>

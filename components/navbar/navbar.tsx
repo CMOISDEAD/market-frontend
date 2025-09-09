@@ -1,14 +1,25 @@
 import Link from "next/link";
-import { Logo } from "@/components/navbar/logo";
 import { ProfileButton } from "./profile-button";
 import { CartButton } from "./cart-button";
+import Image from "next/image";
 
 export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-input">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex-shrink-0">
-          <Logo />
+          <Link href="/">
+            <div className="">
+              <Image
+                src="/logo-wide.png"
+                alt="Martinez Boutique Store"
+                width={200}
+                height={60}
+                className="h-auto w-auto object-contain"
+                priority
+              />{" "}
+            </div>
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center space-x-8">

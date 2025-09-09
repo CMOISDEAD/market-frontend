@@ -1,23 +1,25 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Trash2,
-  ShoppingCart,
-  MapPin,
-  Calendar,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { ShoppingCart, MapPin, Calendar, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { UserType } from "@/types/types";
+import { LoginAuditType, UserType } from "@/types/types";
 import { apiFetch } from "@/lib/api";
 import { toast } from "sonner";
 import { useMarketStore } from "@/store/useMarketStore";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 interface UserDetailsProps {
   userId: string;
@@ -35,6 +37,7 @@ export function UserDetails({ userId }: UserDetailsProps) {
       toast.loading("Loading user data...");
       const data = await apiFetch(`/users/${userId}`);
       setUser(data);
+      console.log("data", data);
       console.log("Fetching user:", userId);
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -160,10 +163,10 @@ export function UserDetails({ userId }: UserDetailsProps) {
                   Edit
                 </Button>
               </Link>
-              <Button variant="destructive" size="sm" onClick={deleteUser}>
-                <Trash2 className="h-4 w-4 mr-2" />
-                Delete
-              </Button>
+              {/* <Button variant="destructive" size="sm" onClick={deleteUser}> */}
+              {/*   <Trash2 className="h-4 w-4 mr-2" /> */}
+              {/*   Delete */}
+              {/* </Button> */}
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -174,16 +177,11 @@ export function UserDetails({ userId }: UserDetailsProps) {
                   {user.id}
                 </p>
               </div>
-              <div>
-                <h3 className="font-semibold text-card-foreground">
-                  Last Login
-                </h3>
-                <p className="text-muted-foreground">Not Implemented in UI</p>
-              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
+                {" "}
                 <h3 className="font-semibold text-card-foreground">
                   Account Created
                 </h3>
@@ -255,7 +253,57 @@ export function UserDetails({ userId }: UserDetailsProps) {
             </div>
           </CardContent>
         </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Login Audits</CardTitle>
+            <CardDescription>Login Audits history</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <LoginAuditList audits={user.loginAudits} />
+          </CardContent>
+        </Card>
       </div>
     </div>
+  );
+}
+
+function LoginAuditList({ audits }: { audits?: LoginAuditType[] }) {
+  if (!audits || audits.length === 0) {
+    return (
+      <p className="text-muted-foreground text-sm italic">
+        No login audits found
+      </p>
+    );
+  }
+
+  return (
+    <ScrollArea className="h-40 rounded-md border p-2">
+      <div className="space-y-2">
+        {audits.map((audit, idx) => (
+          <div key={audit.id}>
+            <div className="flex items-start justify-between gap-2">
+              <div className="space-y-1">
+                <p className="font-mono text-xs text-muted-foreground">
+                  {new Date(audit.createdAt).toLocaleString()}
+                </p>
+                <p className="text-sm">
+                  <span className="font-semibold">IP:</span> {audit.ip ?? "N/A"}
+                </p>
+                <p className="text-xs text-muted-foreground truncate max-w-xs">
+                  {audit.userAgent ?? "Unknown"}
+                </p>
+              </div>
+              <Badge
+                variant={audit.success ? "default" : "destructive"}
+                className={cn("whitespace-nowrap")}
+              >
+                {audit.success ? "Success" : "Failed"}
+              </Badge>
+            </div>
+            {idx < audits.length - 1 && <Separator className="my-2" />}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
   );
 }
