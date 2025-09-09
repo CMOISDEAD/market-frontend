@@ -14,10 +14,12 @@ import {
 import { LoginDialog } from "../auth/login-dialog";
 import { useMarketStore } from "@/store/useMarketStore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function ProfileButton() {
   const { isAuth, user, logout } = useMarketStore((state) => state);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const router = useRouter();
 
   const handleOpenLogin = () => {
     setIsLoginOpen(true);
@@ -25,6 +27,7 @@ export function ProfileButton() {
 
   const handleLogOut = () => {
     logout();
+    router.push("/");
   };
 
   return (
