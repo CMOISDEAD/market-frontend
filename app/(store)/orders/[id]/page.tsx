@@ -95,7 +95,7 @@ export default function OrderDetailPage() {
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Orders
+            Ir a Ordenes
           </Link>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
@@ -103,7 +103,7 @@ export default function OrderDetailPage() {
                 Order #{order.id}
               </h1>
               <p className="text-gray-600 mt-1">
-                Placed on {new Date(order.createdAt).toLocaleDateString()}
+                Creada {new Date(order.createdAt).toLocaleDateString()}
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -140,10 +140,10 @@ export default function OrderDetailPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-semibold text-orange-800 mb-1">
-                          Payment Required
+                          Pago requerido
                         </h3>
                         <p className="text-orange-700 text-sm">
-                          Complete your payment to process this order
+                          Completa tu pago para proceder con esta orden.
                         </p>
                       </div>
                       <Button
@@ -151,7 +151,7 @@ export default function OrderDetailPage() {
                         className="bg-orange-600 hover:bg-orange-700 text-white"
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        Pay Now
+                        Pagar ahora
                       </Button>
                     </div>
                   </CardContent>
@@ -162,7 +162,7 @@ export default function OrderDetailPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Package className="h-5 w-5" />
-                  Order Items
+                  Elementos de la orden
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -189,9 +189,9 @@ export default function OrderDetailPage() {
                         </h3>
                         <p className="text-sm text-gray-600">SKU: {item.sku}</p>
                         <div className="flex items-center gap-4 mt-2 text-sm text-gray-600">
-                          <span>Size: {item.size}</span>
+                          <span>Talla: {item.size}</span>
                           <span>Color: {item.color}</span>
-                          <span>Qty: {item.quantity}</span>
+                          <span>Cantidad: {item.quantity}</span>
                         </div>
                       </div>
                       <div className="text-right">
@@ -209,7 +209,7 @@ export default function OrderDetailPage() {
                             style: "currency",
                             currency: order.currency,
                           })}{" "}
-                          each
+                          unidad
                         </p>
                       </div>
                     </div>
@@ -222,7 +222,7 @@ export default function OrderDetailPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Calendar className="h-5 w-5" />
-                  Order Timeline
+                  Linea de tiempo
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -277,7 +277,7 @@ export default function OrderDetailPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Shipping</span>
-                  <span className="text-green-600">Free</span>
+                  <span className="text-green-600">Gratis</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Tax (IVA 19%)</span>
@@ -309,7 +309,7 @@ export default function OrderDetailPage() {
                         size="lg"
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        Complete Payment
+                        Completar Pago
                       </Button>
                     </>
                   )}
@@ -320,7 +320,7 @@ export default function OrderDetailPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
-                  Shipping Address
+                  Direccion de Envio
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -340,7 +340,7 @@ export default function OrderDetailPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Truck className="h-5 w-5" />
-                    Shipping Details
+                    Detalles de Envio
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
@@ -350,7 +350,7 @@ export default function OrderDetailPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 mb-1">
-                      Tracking Number
+                      Numero de seguimiento
                     </p>
                     <div className="flex items-center gap-2">
                       <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
@@ -373,7 +373,7 @@ export default function OrderDetailPage() {
                   {order.shippingNotes && (
                     <div>
                       <p className="text-sm text-gray-600 mb-1">
-                        Delivery Notes
+                        Notas de entrega
                       </p>
                       <p className="text-sm">{order.shippingNotes}</p>
                     </div>
@@ -386,7 +386,7 @@ export default function OrderDetailPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="h-5 w-5" />
-                  Payment Information
+                  Informacion de pago
                 </CardTitle>
               </CardHeader>
               <CardContent>

@@ -10,14 +10,14 @@ export default function NewUserPage() {
         <Link href="/dashboard/users">
           <Button variant="outline" size="sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Users
+            Volver a usuarios
           </Button>
         </Link>
         <div>
           <h1 className="text-3xl font-bold text-foreground">
-            Create New User
+            Crear nuevo usuario
           </h1>
-          <p className="text-muted-foreground">Add a new user account</p>
+          <p className="text-muted-foreground">Agregar nuevo usuario</p>
         </div>
       </div>
 

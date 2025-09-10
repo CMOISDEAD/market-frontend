@@ -12,8 +12,9 @@ export const AutoLogout = () => {
   const handleLogout = () => {
     if (!isAuth) return;
     logout();
-    toast.success("You have been kicked...");
+    toast.success("Has sido expulsado por inactividad");
     router.push("/");
+    router.refresh();
   };
 
   const resetTimer = () => {
@@ -21,7 +22,7 @@ export const AutoLogout = () => {
 
     timerRef.current = setTimeout(() => {
       handleLogout();
-    }, 60000);
+    }, 600000);
   };
 
   useEffect(() => {

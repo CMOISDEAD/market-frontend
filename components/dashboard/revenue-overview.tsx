@@ -26,7 +26,7 @@ export function RevenueOverview() {
     <Card>
       <CardHeader>
         <CardTitle className="text-card-foreground">
-          Revenue This Week
+          Ganancia esta semana
         </CardTitle>
       </CardHeader>
       <CardContent>

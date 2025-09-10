@@ -22,7 +22,7 @@ export function OrdersOverview() {
     <Card>
       <CardHeader>
         <CardTitle className="text-card-foreground">
-          Orders Distribution
+          Distribuccion de ordenes
         </CardTitle>
       </CardHeader>
       <CardContent>

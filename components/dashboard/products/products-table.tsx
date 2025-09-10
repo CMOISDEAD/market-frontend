@@ -66,14 +66,12 @@ export function ProductsTable() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-card-foreground">
-          Products Overview
-        </CardTitle>
+        <CardTitle className="text-card-foreground">Productos</CardTitle>
         <div className="flex items-center gap-4">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search products..."
+              placeholder="Buscar productos"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -86,13 +84,13 @@ export function ProductsTable() {
           <TableHeader>
             <TableRow>
               <TableHead>SKU</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Price</TableHead>
+              <TableHead>Nombre</TableHead>
+              <TableHead>Precio</TableHead>
               <TableHead>Stock</TableHead>
-              <TableHead>Categories</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Gender</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Categorias</TableHead>
+              <TableHead>Estado</TableHead>
+              <TableHead>Genero</TableHead>
+              <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

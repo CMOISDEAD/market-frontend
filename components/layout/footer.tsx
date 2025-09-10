@@ -8,7 +8,7 @@ export function Footer() {
           <div className="flex flex-col items-center">
             <Logo />
             <p className="text-muted-foreground text-sm italic">
-              &quot;Premium streetwear since 2020&quot;
+              &quot;Ropa Premium desde 2020&quot;
             </p>
           </div>
 
@@ -16,22 +16,24 @@ export function Footer() {
             <div className="flex flex-col items-center md:items-start space-y-2">
               <h4 className="font-medium text-sm">Company</h4>
               <div className="flex flex-col items-center md:items-start space-y-1 text-xs">
-                <span className="">About Us</span>
-                <span className="">Contact</span>
+                <span className="">Nosotros</span>
+                <span className="">Contacto</span>
               </div>
             </div>
 
             <div className="flex flex-col items-center md:items-start space-y-2">
               <h4 className="font-medium text-sm">Support</h4>
               <div className="flex flex-col items-center md:items-start space-y-1 text-xs">
-                <span className="">Size Guide</span>
-                <span className="">Returns</span>
+                <span className="">Guia de tallas</span>
+                <span className="">Rembolsos</span>
               </div>
             </div>
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-xs">&copy; 2025 MBS. All rights reserved.</p>
+            <p className="text-xs">
+              &copy; 2025 MBS. Todos los derechos reservados.
+            </p>
           </div>
         </div>
       </div>

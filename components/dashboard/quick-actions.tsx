@@ -5,20 +5,20 @@ import Link from "next/link";
 
 const actions = [
   {
-    title: "Add Product",
-    description: "Create a new product",
+    title: "Ver Productos",
+    description: "Administra los productos",
     href: "/dashboard/products/new",
     icon: Package,
   },
   {
-    title: "Add User",
-    description: "Create a new user account",
+    title: "Ver usuarios",
+    description: "Administra los usuarios",
     href: "/dashboard/users/new",
     icon: Users,
   },
   {
-    title: "View Orders",
-    description: "Manage customer orders",
+    title: "Ver Ordenes",
+    description: "Administra las ordenes",
     href: "/dashboard/orders",
     icon: ShoppingCart,
   },
@@ -28,7 +28,7 @@ export function QuickActions() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-card-foreground">Quick Actions</CardTitle>
+        <CardTitle className="text-card-foreground">Acciones rapidas</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {actions.map((action) => (

@@ -5,28 +5,28 @@ import { Package, Clock, CheckCircle, XCircle } from "lucide-react";
 
 const stats = [
   {
-    title: "Total Orders",
+    title: "Ordenes Totales",
     value: "1,234",
     change: "+12%",
     icon: Package,
     color: "text-blue-600",
   },
   {
-    title: "Pending Orders",
+    title: "Ordenes Pendientes",
     value: "89",
     change: "+5%",
     icon: Clock,
     color: "text-yellow-600",
   },
   {
-    title: "Completed Orders",
+    title: "Ordenes Completadas",
     value: "1,089",
     change: "+18%",
     icon: CheckCircle,
     color: "text-green-600",
   },
   {
-    title: "Cancelled Orders",
+    title: "Ordenes Canceladas",
     value: "56",
     change: "-8%",
     icon: XCircle,

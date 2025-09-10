@@ -151,7 +151,7 @@ export default function ProductPage() {
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-medium">Size</h3>
               <button className="text-sm text-primary underline">
-                Size guide
+                Guia de tallas
               </button>
             </div>
             <div className="grid grid-cols-4 gap-2">
@@ -169,7 +169,7 @@ export default function ProductPage() {
 
           {/* Quantity control */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium">Quantity</span>
+            <span className="text-sm font-medium">Cantidad</span>
 
             <div className="inline-flex items-center rounded-md border">
               <Button
@@ -204,14 +204,14 @@ export default function ProductPage() {
 
             {maxAvailable !== Infinity && (
               <span className="text-xs text-muted-foreground">
-                ({maxAvailable} available)
+                ({maxAvailable} disponible)
               </span>
             )}
           </div>
 
           <div className="space-y-3 flex gap-2">
             <Button className="w-full" onClick={handleBuyNow}>
-              Buy Product
+              Comprar producto
             </Button>
             <Button
               size="icon"

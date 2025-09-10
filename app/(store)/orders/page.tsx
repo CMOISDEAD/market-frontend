@@ -77,12 +77,14 @@ export default function OrdersPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8 my-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">My Orders</h1>
-          <p className="text-gray-600">Track and manage your order history</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Mis Ordenes</h1>
+          <p className="text-gray-600">
+            Mira tu historial de ordenes de compra.
+          </p>
         </div>
 
         {/* Filters */}
@@ -103,11 +105,11 @@ export default function OrdersPage() {
                   <SelectValue placeholder="Filter by status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Orders</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                  <SelectItem value="processing">Processing</SelectItem>
-                  <SelectItem value="completed">Completed</SelectItem>
-                  <SelectItem value="cancelled">Cancelled</SelectItem>
+                  <SelectItem value="all">Todas las ordenes</SelectItem>
+                  <SelectItem value="pending">Pendientes</SelectItem>
+                  <SelectItem value="processing">Procesando</SelectItem>
+                  <SelectItem value="completed">Completadas</SelectItem>
+                  <SelectItem value="cancelled">Canceladas</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -121,10 +123,10 @@ export default function OrdersPage() {
               <CardContent className="p-12 text-center">
                 <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  No orders found
+                  No se encontraron ordenes
                 </h3>
                 <p className="text-gray-600">
-                  Try adjusting your search or filter criteria
+                  Intenta ajustando tus criterios de busqueda.
                 </p>
               </CardContent>
             </Card>
@@ -214,7 +216,7 @@ export default function OrdersPage() {
                           className="flex items-center gap-2 bg-transparent"
                         >
                           <Eye className="h-4 w-4" />
-                          View Details
+                          Ver detalles
                         </Button>
                       </Link>
                     </div>

@@ -10,28 +10,28 @@ import {
 
 const stats = [
   {
-    title: "Total Products",
+    title: "Productos Totales",
     value: "1,234",
     change: "+12%",
     trend: "up",
     icon: Package,
   },
   {
-    title: "Total Users",
+    title: "Usuarios Totales",
     value: "5,678",
     change: "+8%",
     trend: "up",
     icon: Users,
   },
   {
-    title: "Total Orders",
+    title: "Ordenes Totales",
     value: "890",
     change: "+23%",
     trend: "up",
     icon: ShoppingCart,
   },
   {
-    title: "Revenue",
+    title: "Ganancia",
     value: "$45,678",
     change: "+15%",
     trend: "up",
@@ -67,7 +67,7 @@ export function StatsCards() {
               >
                 {stat.change}
               </span>
-              <span className="ml-1">from last month</span>
+              <span className="ml-1">Desde el utlimo mes</span>
             </div>
           </CardContent>
         </Card>

@@ -27,19 +27,19 @@ export function Navbar() {
             href="#"
             className="transition-colors cursor-not-allowed opacity-50"
           >
-            Collections
+            Colecciones
           </Link>
           <Link
             href="#"
             className="transition-colors cursor-not-allowed opacity-50"
           >
-            Explore
+            Explorar
           </Link>
           <Link
             href="#"
             className="transition-colors cursor-not-allowed opacity-50"
           >
-            Categories
+            Categorias
           </Link>
         </div>
 

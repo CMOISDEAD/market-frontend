@@ -117,12 +117,12 @@ export function OrdersTable() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-card-foreground">Orders Overview</CardTitle>
+        <CardTitle className="text-card-foreground">Ordenes</CardTitle>
         <div className="flex items-center gap-4">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search orders..."
+              placeholder="Buscar ordenes"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -133,11 +133,11 @@ export function OrdersTable() {
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="PENDING">Pending</SelectItem>
-              <SelectItem value="PROCESSING">Processing</SelectItem>
-              <SelectItem value="COMPLETED">Completed</SelectItem>
-              <SelectItem value="CANCELLED">Cancelled</SelectItem>
+              <SelectItem value="all">Todas</SelectItem>
+              <SelectItem value="PENDING">Pendientes</SelectItem>
+              <SelectItem value="PROCESSING">Procesando</SelectItem>
+              <SelectItem value="COMPLETED">Completadas</SelectItem>
+              <SelectItem value="CANCELLED">Canceladas</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -147,14 +147,14 @@ export function OrdersTable() {
           <TableHeader>
             <TableRow>
               <TableHead>Order ID</TableHead>
-              <TableHead>Customer</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Items</TableHead>
+              <TableHead>Comprador</TableHead>
+              <TableHead>Fecha</TableHead>
+              <TableHead>Elementos</TableHead>
               <TableHead>Total</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Payment</TableHead>
-              <TableHead>Shipping</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Estado</TableHead>
+              <TableHead>Pago</TableHead>
+              <TableHead>Envio</TableHead>
+              <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

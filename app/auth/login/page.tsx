@@ -34,13 +34,13 @@ import Link from "next/link";
 
 const formSchema = z.object({
   email: z.email({
-    message: "email must be a valid email",
+    message: "Ingresa un correo valido.",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
+    message: "La contraseña debe tener minimo 6 caracteres.",
   }),
   captchaToken: z.string().min(1, {
-    message: "Please complete the CAPTCHA verification.",
+    message: "Porfavor completa el captcha",
   }),
 });
 
@@ -67,8 +67,9 @@ export default function Page() {
       });
       form.reset();
       setIsAuth(true);
-      toast.success("Login successful");
+      toast.success("Login exitoso");
       router.push("/");
+      router.refresh();
     } catch (error) {
       console.error("error in login dialog", error);
       toast.error(`${error}`);

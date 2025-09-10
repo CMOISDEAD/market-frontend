@@ -24,16 +24,17 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.email({
-    message: "email must be a valid email",
+    message: "El email debe ser un email valido",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
+    message: "La contraseña dedbe tener minimo 6 caracteres.",
   }),
   captchaToken: z.string().min(1, {
-    message: "Please complete the CAPTCHA verification.",
+    message: "Por favor completa el captcha ",
   }),
 });
 
@@ -46,6 +47,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const { setIsAuth } = useMarketStore((state) => state);
   const recaptchaRef = useRef<HCaptcha>(null);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,7 +68,8 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
       form.reset();
       setIsOpen(false);
       setIsAuth(true);
-      toast.success("Login successful");
+      toast.success("Login exitoso");
+      router.refresh();
     } catch (error) {
       console.error("error in login dialog", error);
       toast.error(`${error}`);
@@ -97,7 +100,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       title="Login"
-      description="Login into your profile account."
+      description="Ingresa a tu cuenta"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -110,7 +113,9 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
                 <FormControl>
                   <Input placeholder="jhon@email.com" {...field} />
                 </FormControl>
-                <FormDescription>This is your user email.</FormDescription>
+                <FormDescription>
+                  Aqui va el email de tu cuenta.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -124,7 +129,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
                 <FormControl>
                   <Input type="password" placeholder="password" {...field} />
                 </FormControl>
-                <FormDescription>This is your user password.</FormDescription>
+                <FormDescription>Contraseña de tu cuenta.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -163,7 +168,7 @@ export function LoginDialog({ isOpen, setIsOpen }: Props) {
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">Cancelar</Button>
             </DialogClose>
             <Button type="submit" disabled={isLoading}>
               {isLoading && <Loader2 className="size-4 animate-spin" />}

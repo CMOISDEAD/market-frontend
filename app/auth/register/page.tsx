@@ -29,29 +29,29 @@ import { z } from "zod";
 const formSchema = z
   .object({
     name: z.string().min(5, {
-      message: "Full names must be at least 5 characters.",
+      message: "El nombre completo debe tener minimo 5 caracteres.",
     }),
     email: z.email({
-      message: "Please enter a valid email address.",
+      message: "Por favor ingresa un correo valido.",
     }),
     password: z.string().min(6, {
-      message: "Password must be at least 6 characters.",
+      message: "La contraseña debe tener minimo 6 caracteres.",
     }),
     confirmPassword: z.string().min(6, {
-      message: "Please confirm your password.",
+      message: "Por favor confirma tu contraseña",
     }),
     phone: z.string().min(10, {
-      message: "Phone number must be at least 10 characters.",
+      message: "El telerfono debe tener minimo 10 caracteres",
     }),
     city: z.string().min(5, {
-      message: "City name must bet at least 10 characters.",
+      message: "El nombre de la ciudad debe tener minimo 5 caracteres.",
     }),
     country: z.string().min(5, {
-      message: "Country name must bet at least 10 characters.",
+      message: "El nombre del pais debe tener minimo 5 caracteres",
     }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
+    message: "Las contraseñas no coinciden.",
     path: ["confirmPassword"],
   });
 
@@ -87,13 +87,13 @@ export default function RegisterPage() {
 
       form.reset();
       toast.success(
-        "Registration successful! Please check your email to verify your account.",
+        "Registro exitoso, por favor activa tu cuenta desde tu email.",
       );
 
       router.push("/");
     } catch (error) {
       console.error("Error in registration:", error);
-      toast.error("Registration failed. Please try again.");
+      toast.error(`Registration failed. ${error}`);
     } finally {
       setIsLoading(false);
     }
@@ -106,10 +106,10 @@ export default function RegisterPage() {
             <UserPlus className="w-6 h-6 text-primary" />
           </div>
           <CardTitle className="text-2xl font-semibold">
-            Create Account
+            Crea una cuenta
           </CardTitle>
           <CardDescription className="text-muted-foreground">
-            Fill in your information to get started
+            Llena los campos para empezar
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -120,7 +120,7 @@ export default function RegisterPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Names</FormLabel>
+                    <FormLabel>Nombres</FormLabel>
                     <FormControl>
                       <Input placeholder="John" {...field} />
                     </FormControl>
@@ -152,7 +152,7 @@ export default function RegisterPage() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel>Numero de celular</FormLabel>
                     <FormControl>
                       <Input
                         type="tel"
@@ -171,7 +171,7 @@ export default function RegisterPage() {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel>Contraseña</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -188,7 +188,7 @@ export default function RegisterPage() {
                   name="confirmPassword"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Confirm Password</FormLabel>
+                      <FormLabel>Confirma la contraseña</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -208,7 +208,7 @@ export default function RegisterPage() {
                   name="city"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>City Name</FormLabel>
+                      <FormLabel>Ciudad</FormLabel>
                       <FormControl>
                         <Input placeholder="New York" {...field} />
                       </FormControl>
@@ -221,7 +221,7 @@ export default function RegisterPage() {
                   name="country"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Country Name</FormLabel>
+                      <FormLabel>Pais</FormLabel>
                       <FormControl>
                         <Input placeholder="United States" {...field} />
                       </FormControl>
@@ -233,18 +233,18 @@ export default function RegisterPage() {
 
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Create Account
+                Crear Cuenta
               </Button>
             </form>
           </Form>
 
           <div className="mt-6 text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
+            Ya tienes una cuenta?{" "}
             <a
               href="/login"
               className="text-primary hover:underline font-medium"
             >
-              Sign in
+              Login
             </a>
           </div>
         </CardContent>

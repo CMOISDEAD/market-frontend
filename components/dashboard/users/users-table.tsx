@@ -86,12 +86,12 @@ export function UsersTable() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-card-foreground">Users Overview</CardTitle>
+        <CardTitle className="text-card-foreground">Usuarios</CardTitle>
         <div className="flex items-center gap-4">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search users..."
+              placeholder="Buscar usuarios"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -103,15 +103,15 @@ export function UsersTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
+              <TableHead>Nombre</TableHead>
               <TableHead>Email</TableHead>
-              <TableHead>Phone</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Orders</TableHead>
-              <TableHead>Joined</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Celular</TableHead>
+              <TableHead>Locacion</TableHead>
+              <TableHead>Rol</TableHead>
+              <TableHead>Estado</TableHead>
+              <TableHead>Ordenes</TableHead>
+              <TableHead>Creacion</TableHead>
+              <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

@@ -45,34 +45,34 @@ export function ProfileButton() {
             <DropdownMenuSeparator />
             {user.role === "ADMIN" && (
               <>
-                <DropdownMenuLabel>Admin Options</DropdownMenuLabel>
+                <DropdownMenuLabel>Opciones de Administrador</DropdownMenuLabel>
                 <DropdownMenuItem>
                   <Link href="/dashboard">Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
               </>
             )}
-            <DropdownMenuLabel>Profile Options</DropdownMenuLabel>
+            <DropdownMenuLabel>Opciones de Perfil</DropdownMenuLabel>
             <DropdownMenuItem>
-              <Link href="/profile">Profile</Link>
+              <Link href="/profile">Perfil</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href="/orders">Orders</Link>
+              <Link href="/orders">Ordenes</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuItem>Configuracion</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleLogOut}>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         ) : (
           <DropdownMenuContent>
-            <DropdownMenuLabel>Auth Options</DropdownMenuLabel>
+            <DropdownMenuLabel>Opciones de Autenticacion</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleOpenLogin}>Login</DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href="/auth/register">Register</Link>
+              <Link href="/auth/register">Registrarse</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Contact</DropdownMenuItem>
+            <DropdownMenuItem>Contacto</DropdownMenuItem>
           </DropdownMenuContent>
         )}
       </DropdownMenu>

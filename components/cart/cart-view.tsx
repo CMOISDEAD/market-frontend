@@ -93,24 +93,26 @@ export default function CartView({ cart }: Props) {
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span>Continue Shopping</span>
+          <span>Continuar comprando</span>
         </Link>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Shopping Cart</h1>
+            <h1 className="text-2xl font-bold">Carrito de compras</h1>
             <span className="text-muted-foreground">
-              {items.length} {items.length === 1 ? "item" : "items"}
+              {items.length} {items.length === 1 ? "elemento" : "elementos"}
             </span>
           </div>
 
           {items.length === 0 ? (
             <Card className="p-8 text-center">
-              <p className="text-muted-foreground mb-4">Your cart is empty</p>
+              <p className="text-muted-foreground mb-4">
+                Tu carrito esta vacio
+              </p>
               <Link href="/">
-                <Button>Continue Shopping</Button>
+                <Button>Continuar comprando</Button>
               </Link>
             </Card>
           ) : (
@@ -136,7 +138,7 @@ export default function CartView({ cart }: Props) {
                             {item.product.name}
                           </h3>
                           <div className="flex gap-4 text-sm text-muted-foreground mt-1">
-                            {item.size && <span>Size: {item.size}</span>}
+                            {item.size && <span>Talla: {item.size}</span>}
                             {item.color && <span>Color: {item.color}</span>}
                           </div>
                         </div>
@@ -197,7 +199,7 @@ export default function CartView({ cart }: Props) {
         {/* Order Summary - Sticky */}
         <div className="lg:sticky lg:top-8 lg:h-fit">
           <Card className="p-6 space-y-4">
-            <h2 className="text-lg font-semibold">Order Summary</h2>
+            <h2 className="text-lg font-semibold">Resumen de compra</h2>
 
             <div className="space-y-3">
               <div className="flex justify-between text-sm">
@@ -214,7 +216,7 @@ export default function CartView({ cart }: Props) {
               </div>
 
               <div className="flex justify-between text-sm">
-                <span>Shipping</span>
+                <span>Envio</span>
                 <span>
                   {shipping === 0 ? "Free" : `£${shipping.toFixed(2)}`}
                 </span>
@@ -222,7 +224,7 @@ export default function CartView({ cart }: Props) {
 
               {shipping === 0 && subtotal > 0 && (
                 <p className="text-xs text-green-600">
-                  Free shipping on orders over COP 100.000
+                  Envio gratis por compras sobre COP 100.000
                 </p>
               )}
 
@@ -247,19 +249,11 @@ export default function CartView({ cart }: Props) {
               >
                 CHECKOUT
               </Button>
-
-              <Button
-                variant="outline"
-                className="w-full py-4 bg-transparent"
-                disabled={items.length === 0}
-              >
-                Buy with ShopPay
-              </Button>
             </div>
 
             <div className="text-xs text-muted-foreground space-y-1 pt-2">
-              <p>• Secure checkout with SSL encryption</p>
-              <p>• 30-day return policy</p>
+              <p>• Compra seguras, protegidas con SSL</p>
+              <p>• 30-dias politica de rembolso</p>
               <p>• Free returns on all orders</p>
             </div>
           </Card>
