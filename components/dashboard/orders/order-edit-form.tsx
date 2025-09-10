@@ -119,7 +119,7 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
           {/* Order Status */}
           <Card>
             <CardHeader>
-              <CardTitle>Order Status</CardTitle>
+              <CardTitle>Estado de la Orden</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <FormField
@@ -127,7 +127,7 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                 name="status"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Order Status</FormLabel>
+                    <FormLabel>Estado</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger>
@@ -135,12 +135,12 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="PENDING">Pending</SelectItem>
-                        <SelectItem value="PROCESSING">Processing</SelectItem>
-                        <SelectItem value="PAID">Paid</SelectItem>
-                        <SelectItem value="SHIPPED">Shipped</SelectItem>
-                        <SelectItem value="CANCELLED">Cancelled</SelectItem>
-                        <SelectItem value="REFUNDED">Refunded</SelectItem>
+                        <SelectItem value="PENDING">Pendiente</SelectItem>
+                        <SelectItem value="PROCESSING">procesando</SelectItem>
+                        <SelectItem value="PAID">Pagado</SelectItem>
+                        <SelectItem value="SHIPPED">Enviado</SelectItem>
+                        <SelectItem value="CANCELLED">Cancelado</SelectItem>
+                        <SelectItem value="REFUNDED">Rembolsado</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -153,7 +153,7 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                 name="paymentStatus"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Payment Status</FormLabel>
+                    <FormLabel>Estado del Pago</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger>
@@ -161,12 +161,12 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="PENDING">Pending</SelectItem>
-                        <SelectItem value="UNPAID">Unpaid</SelectItem>
-                        <SelectItem value="COMPLETED">COMPLETED</SelectItem>
-                        <SelectItem value="FAILED">Failed</SelectItem>
-                        <SelectItem value="REFUNDED">Refunded</SelectItem>
-                        <SelectItem value="CANCELLED">Cancelled</SelectItem>
+                        <SelectItem value="PENDING">Pendiente</SelectItem>
+                        <SelectItem value="UNPAID">Sin Pagar</SelectItem>
+                        <SelectItem value="COMPLETED">Completado</SelectItem>
+                        <SelectItem value="FAILED">Fallido</SelectItem>
+                        <SelectItem value="REFUNDED">Rembolsado</SelectItem>
+                        <SelectItem value="CANCELLED">Cancelado</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -187,11 +187,11 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="NOT_SHIPPED">Not Shipped</SelectItem>
-                        <SelectItem value="IN_TRANSIT">In Transit</SelectItem>
-                        <SelectItem value="DELIVERED">Delivered</SelectItem>
-                        <SelectItem value="RETURNED">Returned</SelectItem>
-                        <SelectItem value="CANCELLED">Cancelled</SelectItem>
+                        <SelectItem value="NOT_SHIPPED">No Enviado</SelectItem>
+                        <SelectItem value="IN_TRANSIT">En Transito</SelectItem>
+                        <SelectItem value="DELIVERED">Entregado</SelectItem>
+                        <SelectItem value="RETURNED">Devuelto</SelectItem>
+                        <SelectItem value="CANCELLED">Cancelado</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -204,7 +204,7 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
           {/* Shipping Information */}
           <Card>
             <CardHeader>
-              <CardTitle>Shipping Information</CardTitle>
+              <CardTitle>Informacion del Envio</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <FormField
@@ -212,9 +212,12 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                 name="shippingCarrier"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Shipping Carrier</FormLabel>
+                    <FormLabel>Servicio de entrega</FormLabel>
                     <FormControl>
-                      <Input placeholder="FedEx, UPS, DHL, etc." {...field} />
+                      <Input
+                        placeholder="Coordinadora, Servientrega, DHL, etc."
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -226,9 +229,12 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                 name="shippingTrackingNumber"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tracking Number</FormLabel>
+                    <FormLabel>Numero de Seguimiento</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter tracking number" {...field} />
+                      <Input
+                        placeholder="Ingerea el numero de Seguimiento"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -240,16 +246,16 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
                 name="shippingNotes"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Shipping Notes</FormLabel>
+                    <FormLabel>Notas de Entrega</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Special delivery instructions..."
+                        placeholder="Notas especiales para la entrega..."
                         rows={3}
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Optional delivery instructions.
+                      Notas de entrega opcionales.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -262,11 +268,11 @@ export function OrderEditForm({ orderId }: OrderEditFormProps) {
         {/* Submit Button */}
         <div className="flex justify-end gap-4">
           <Button type="button" variant="outline" onClick={() => router.back()}>
-            Cancel
+            Cancelar
           </Button>
           <Button type="submit" disabled={isLoading}>
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            {isLoading ? "Updating..." : "Update Order"}
+            {isLoading ? "Actualizando..." : "Actualizar Orden"}
           </Button>
         </div>
       </form>

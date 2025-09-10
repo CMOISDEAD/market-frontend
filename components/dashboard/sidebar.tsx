@@ -9,39 +9,33 @@ import {
   Users,
   ShoppingCart,
   BarChart3,
-  Settings,
 } from "lucide-react";
 
 const navigation = [
   {
-    name: "Overview",
+    name: "General",
     href: "/dashboard",
     icon: LayoutDashboard,
   },
   {
-    name: "Products",
+    name: "Productos",
     href: "/dashboard/products",
     icon: Package,
   },
   {
-    name: "Users",
+    name: "Usuarios",
     href: "/dashboard/users",
     icon: Users,
   },
   {
-    name: "Orders",
+    name: "Ordenes",
     href: "/dashboard/orders",
     icon: ShoppingCart,
   },
   {
-    name: "Analytics",
+    name: "Analiticas",
     href: "/dashboard/analytics",
     icon: BarChart3,
-  },
-  {
-    name: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings,
   },
 ];
 
@@ -53,7 +47,7 @@ export function Sidebar() {
       <div className="p-6">
         <Link href="/">
           <h1 className="text-xl font-bold text-sidebar-foreground">
-            Market Admin Dashboard
+            Martinez Store Dashboard
           </h1>
         </Link>
       </div>

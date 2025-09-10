@@ -103,11 +103,12 @@ export default function ProductPage() {
 
   const handleBuyNow = () => {
     // implementar flujo de compra
+    toast("No implementado, Agregalo al carrito.");
   };
 
   return (
-    <div className="flex min-h-screen">
-      <div className="w-1/2 sticky top-0 h-screen overflow-y-auto bg-background flex items-center p-20">
+    <div className="flex flex-col md:flex-row min-h-screen">
+      <div className="md:w-1/2 md:sticky top-0 h-screen overflow-y-auto bg-background flex items-center p-10 md:p-20">
         <div className="mx-auto w-full space-y-6">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tight text-balance">
@@ -127,7 +128,7 @@ export default function ProductPage() {
             </p>
             <p className="text-sm text-muted-foreground">
               {typeof product.stock === "number"
-                ? `${product.stock} in stock`
+                ? `${product.stock} en stock`
                 : null}
             </p>
           </div>
@@ -210,13 +211,18 @@ export default function ProductPage() {
           </div>
 
           <div className="space-y-3 flex gap-2">
-            <Button className="w-full" onClick={handleBuyNow}>
+            <Button
+              className="w-full"
+              onClick={handleBuyNow}
+              disabled={product.stock <= 0}
+            >
               Comprar producto
             </Button>
             <Button
               size="icon"
               onClick={handleAddToCart}
               className="flex items-center gap-2"
+              disabled={product.stock <= 0}
             >
               <ShoppingCart className="size-4" />
             </Button>
@@ -229,10 +235,10 @@ export default function ProductPage() {
       </div>
 
       {/* Right Column - Scrollable Images */}
-      <div className="w-1/2 bg-muted/30">
-        <div className="space-y-1">
+      <div className="md:w-1/2 bg-muted/30">
+        <div className="space-y-1 flex gap-8 overflow-auto md:flex-col">
           {product.images.map((image, index) => (
-            <div key={index} className="relative aspect-[3/4] w-full">
+            <div key={index} className="relative aspect-[3/4] w-full min-w-48">
               <Image
                 src={image || "/placeholder.svg"}
                 alt={`${product.name} - View ${index + 1}`}

@@ -324,13 +324,13 @@ export default function OrderDetailPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <p>{order.shippingAddress?.street}</p>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>{order.shippingAddress?.street || "Calle 123"}</p>
                   <p>
-                    {order.shippingAddress?.city},{" "}
-                    {order.shippingAddress?.state}
+                    {order.shippingAddress?.city || "Armenia"},{" "}
+                    {order.shippingAddress?.state || "Quindio"}
                   </p>
-                  <p>{order.shippingAddress?.country}</p>
+                  <p>{order.shippingAddress?.country || "Colombia"}</p>
                 </div>
               </CardContent>
             </Card>
@@ -345,11 +345,13 @@ export default function OrderDetailPage() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Carrier</p>
+                    <p className="text-sm text-muted-foreground mb-1">
+                      Carrier
+                    </p>
                     <p className="font-medium">{order.shippingCarrier}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">
+                    <p className="text-sm text-muted-foreground mb-1">
                       Numero de seguimiento
                     </p>
                     <div className="flex items-center gap-2">

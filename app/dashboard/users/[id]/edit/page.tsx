@@ -16,12 +16,14 @@ export default function EditUserPage({ params }: EditUserPageProps) {
         <Link href={`/dashboard/users/${params.id}`}>
           <Button variant="outline" size="sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to User
+            Volver a usuarios
           </Button>
         </Link>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Edit User</h1>
-          <p className="text-muted-foreground">Update user information</p>
+          <h1 className="text-3xl font-bold text-foreground">Editar Usuario</h1>
+          <p className="text-muted-foreground">
+            Actualizar informacion del usuario
+          </p>
         </div>
       </div>
 

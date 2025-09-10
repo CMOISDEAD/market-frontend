@@ -139,7 +139,7 @@ export function UserForm({ userId }: UserFormProps) {
           {/* Account Information */}
           <Card>
             <CardHeader>
-              <CardTitle>Account Information</CardTitle>
+              <CardTitle>Informacion de la cuenta</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <FormField
@@ -147,7 +147,7 @@ export function UserForm({ userId }: UserFormProps) {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email Address</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
                         id="email"
@@ -167,10 +167,10 @@ export function UserForm({ userId }: UserFormProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Password{" "}
+                      Contraseña{" "}
                       {userId && (
                         <span className="text-muted-foreground">
-                          (leave empty to keep current)
+                          (Dejala vacia para dejar la actual)
                         </span>
                       )}
                     </FormLabel>
@@ -186,8 +186,8 @@ export function UserForm({ userId }: UserFormProps) {
                     </FormControl>
                     <FormDescription>
                       {userId
-                        ? "Minimum 6 characters — leave empty to keep current password"
-                        : "Minimum 6 characters"}
+                        ? "Minimo 6 Caracteres, dejala vacia para no actualizar."
+                        : "Minimo 6 Caracteres"}
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -199,7 +199,7 @@ export function UserForm({ userId }: UserFormProps) {
                 name="role"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Role</FormLabel>
+                    <FormLabel>Rol</FormLabel>
                     <FormControl>
                       <Select
                         onValueChange={field.onChange}
@@ -209,8 +209,8 @@ export function UserForm({ userId }: UserFormProps) {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="USER">User</SelectItem>
-                          <SelectItem value="ADMIN">Admin</SelectItem>
+                          <SelectItem value="USER">Usuario</SelectItem>
+                          <SelectItem value="ADMIN">Administrador</SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>
@@ -226,10 +226,10 @@ export function UserForm({ userId }: UserFormProps) {
                   <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                     <div className="space-y-0.5">
                       <FormLabel className="text-base">
-                        Account Activated
+                        Cuenta Activada
                       </FormLabel>
                       <FormDescription>
-                        Toggle to activate or deactivate the account
+                        Activa o Desactiva la cuenta
                       </FormDescription>
                     </div>
                     <FormControl>
@@ -247,7 +247,7 @@ export function UserForm({ userId }: UserFormProps) {
           {/* Personal Information */}
           <Card>
             <CardHeader>
-              <CardTitle>Personal Information</CardTitle>
+              <CardTitle>Informacion Personal</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <FormField
@@ -255,11 +255,11 @@ export function UserForm({ userId }: UserFormProps) {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
                       <Input
                         id="name"
-                        placeholder="Enter full name"
+                        placeholder="Ingresa el nombre"
                         {...field}
                       />
                     </FormControl>
@@ -273,7 +273,7 @@ export function UserForm({ userId }: UserFormProps) {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel>Numero de celular</FormLabel>
                     <FormControl>
                       <Input
                         id="phone"
@@ -292,9 +292,13 @@ export function UserForm({ userId }: UserFormProps) {
                 name="city"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>City</FormLabel>
+                    <FormLabel>Ciudad</FormLabel>
                     <FormControl>
-                      <Input id="city" placeholder="Enter city" {...field} />
+                      <Input
+                        id="city"
+                        placeholder="Ingresa la ciudad"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -306,11 +310,11 @@ export function UserForm({ userId }: UserFormProps) {
                 name="country"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Country</FormLabel>
+                    <FormLabel>Pais</FormLabel>
                     <FormControl>
                       <Input
                         id="country"
-                        placeholder="Enter country"
+                        placeholder="Ingresa el pais"
                         {...field}
                       />
                     </FormControl>
@@ -325,11 +329,11 @@ export function UserForm({ userId }: UserFormProps) {
         {/* Submit Button */}
         <div className="flex justify-end gap-4">
           <Button type="button" variant="outline" onClick={() => router.back()}>
-            Cancel
+            Cancelar
           </Button>
           <Button type="submit" disabled={isLoading}>
             {isLoading && <Loader2 className="h-4 w-4 animate-spin mr-2" />}
-            {userId ? "Update User" : "Create User"}
+            {userId ? "Actualizar Usuario" : "Crear Usuario"}
           </Button>
         </div>
       </form>

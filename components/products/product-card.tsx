@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ProductType } from "@/types/types";
 import Link from "next/link";
 
-export function ProductCard({ id, name, price, images }: ProductType) {
+export function ProductCard({ id, name, price, images, stock }: ProductType) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -34,6 +34,11 @@ export function ProductCard({ id, name, price, images }: ProductType) {
                 currency: "COP",
               })}
             </span>
+            {stock <= 0 && (
+              <span className="text-bolder text-yellow-700 text-xs">
+                SIN STOCK
+              </span>
+            )}
           </div>
         </div>
       </div>
